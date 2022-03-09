@@ -1,0 +1,24 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start":"nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taquangnghia/nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taquangnghia/nodejs/issues"
+  },
+  "homepage": "https://github.com/Taquangnghia/nodejs#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "save-dev": "^0.0.1-security"
+  }
+}
