@@ -21,11 +21,11 @@ export const listPost = async (req, res) => {
 // update
 export const updates = async (req, res) => {
     try {
-        const UpdateProduct = await Product.findByIdAndUpdate(req.params.id, req.body)
+        const UpdateProduct = await Product.findByIdAndUpdate(req.params.id, req.body,{new:true})
         res.json(UpdateProduct);
     } catch (error) {
         res.status(400).json({
-            message: "Không tìm được sản phẩm anh eiii"
+            message: "Không tìm được sản phẩm anh "
         })
     }
 
@@ -37,7 +37,7 @@ export const removdes = async (req, res) => {
         res.json(Remove)
     } catch (error) {
         res.status(400).json({
-            message: "Không xóa đc :)"
+            message: "Không xóa đc "
         })
     }
 }
@@ -50,7 +50,7 @@ export const addPost = async (req, res) => {
         res.json(addPost)
     } catch (error) {
         res.status(400).json({
-            message: "Không thêm được :))"
+            message: "Không thêm được"
         })
     }
 
