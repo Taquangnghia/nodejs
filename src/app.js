@@ -4,14 +4,16 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import productRoute from '../routes/product';
+import catergoryRouter from '../routes/category';
 
 const app = express();
+//middiewaer
 app.use(cors());
-
 app.use(express.json());
 
-//
+//router
 app.use("/api",productRoute);
+app.use("/api",catergoryRouter);
 
 // data set
 mongoose.connect('mongodb://127.0.0.1:27017/web1639')
@@ -19,7 +21,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/web1639')
     .catch((error)=>console.log(error));
 
 //
-const PORT = process.env.PORT || 5000;
+const PORT =  5000;
 app.listen(PORT, () => {
     console.log("Server is running port", PORT);
 });

@@ -16,6 +16,15 @@ export const listPost = async (req, res) => {
         })
     }
 }
+/// hien thi sp 
+export const hienthi = async (req,res=>{
+    try {
+        const hienthi =await Product.find();
+        res.json(hienthi)
+    } catch (error) {
+        
+    }
+})
 
 
 // update
@@ -54,6 +63,16 @@ export const addPost = async (req, res) => {
         })
     }
 
+}
+export const list = async (req, res) => { 
+    try {
+        const products = await Product.find().sort({createAt: -1});
+        res.json(products);
+    } catch (error) {
+        res.status(400).json({
+            message: "Lỗi không tìm được sản phẩm"
+        })
+    }
 }
 
 // export const create = async (req,res)=>{

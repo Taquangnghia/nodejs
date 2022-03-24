@@ -1,9 +1,9 @@
-import { updates,removdes,listPost ,addPost} from '../src/controllers/product';
+import { updates,removdes,listPost ,addPost,list} from '../src/controllers/product';
 import { Router } from 'express';
 import { checkAuth } from '../middlewares/checkAuth';
 const router = Router();
-
-router.get('/products', checkAuth, listPost);
+router.get('/products', checkAuth, list);
+router.get('/product', checkAuth, listPost);
 router.put('/product/:id', checkAuth, updates);
 router.post('/products', checkAuth,addPost);
 router.delete('/product/:id', checkAuth, removdes);
