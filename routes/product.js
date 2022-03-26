@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { checkAuth } from '../middlewares/checkAuth';
 const router = Router();
 router.get('/products', checkAuth, list);
-router.get('/product', checkAuth, listPost);
+
 router.put('/product/:id', checkAuth, updates);
 router.post('/products', checkAuth,addPost);
 router.delete('/product/:id', checkAuth, removdes);

@@ -5,26 +5,8 @@ const fake = [
     {id:1,name:"productA"},
     {id:2,name:"productB"}
 ];
-// hien thi
-export const listPost = async (req, res) => {
-    try {
-        const listPost = await Product.find();
-        res.json(listPost)
-    } catch (error) {
-        res.status(400).json({
-            message: "Không tìm được sản phẩm"
-        })
-    }
-}
-/// hien thi sp 
-export const hienthi = async (req,res=>{
-    try {
-        const hienthi =await Product.find();
-        res.json(hienthi)
-    } catch (error) {
-        
-    }
-})
+
+
 
 
 // update

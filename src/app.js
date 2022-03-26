@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 
 import productRoute from '../routes/product';
 import catergoryRouter from '../routes/category';
+import users from '../routes/auth';
 
 const app = express();
 //middiewaer
@@ -14,6 +15,7 @@ app.use(express.json());
 //router
 app.use("/api",productRoute);
 app.use("/api",catergoryRouter);
+app.use("/api",users)
 
 // data set
 mongoose.connect('mongodb://127.0.0.1:27017/web1639')
