@@ -1,3 +1,4 @@
+
 export const checkAuth = (req, res, next) => {
     const status = true;
     if(status){

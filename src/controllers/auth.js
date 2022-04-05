@@ -1,7 +1,7 @@
 import User from "../../models/auth";
 
 export const singup = async (req,res)=>{
-    const {name,email,password} = req.body;
+    const {name,email,password,role} = req.body;
     try {
         const existUser = await User.findOne({email}).exec();
         if(existUser){
@@ -9,15 +9,18 @@ export const singup = async (req,res)=>{
                 message:"email ton tai"
             })
 
-        };
-        const user = await new User({email,name,password}).save();
-        res.json({
-            user:{
-                _id:user._id,
-                email:user.email,
-                name:user.name
-            }
-        })
+        } else{
+            const user = await new User({email,name,password,role}).save();
+            res.json({
+                user:{
+                    _id:user._id,
+                    email:user.email,
+                    name:user.name,
+                    role:user.role
+                }
+            })
+        }
+       
     }catch(error){
         console.log(error);
     }

@@ -8,11 +8,19 @@ const productSchema = new Schema({
     },
     price: {
         type: Number,
-        required: true
+        required: true      
     },
     category: {
         type: ObjectId,
         ref: "Category"
+    },
+    img:{
+        type:String,
+        required:true
+    },
+    desc:{
+        type:String,    
+        required:true
     }
 }, { timestamps: true});
 export default mongoose.model('Product', productSchema);

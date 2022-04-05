@@ -19,8 +19,10 @@ const User = new mongoose.Schema({
        
 
     },
-    salt:{
-        type:String
+    role:{
+        type:Number,
+    
+        default:0
     }
 },{timestamps:true});
 User.methods = {

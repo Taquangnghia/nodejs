@@ -56,6 +56,17 @@ export const list = async (req, res) => {
         })
     }
 }
+export const getProductById = async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        res.json(product);
+    } catch (error) {
+        res.status(400).json({
+            message: "Không tìm được sản phẩm anh eiii"
+        })
+    }
+
+}
 
 // export const create = async (req,res)=>{
 //     const product = await Product(req.body).save()
