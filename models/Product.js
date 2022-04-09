@@ -4,7 +4,8 @@ const productSchema = new Schema({
         type: String,
         minLength: 5,
         required: true,
-        unique: true
+        unique: true,
+        index:true
     },
     price: {
         type: Number,
@@ -22,5 +23,6 @@ const productSchema = new Schema({
         type:String,    
         required:true
     }
-}, { timestamps: true});
+}, { timestamps: true})
+productSchema.index({"$**":'text'});
 export default mongoose.model('Product', productSchema);

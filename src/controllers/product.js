@@ -13,7 +13,7 @@ const fake = [
 export const updates = async (req, res) => {
     try {
         const UpdateProduct = await Product.findByIdAndUpdate(req.params.id, req.body,{new:true})
-        res.json(UpdateProduct);
+        res.json(UpdateProduct);    
     } catch (error) {
         res.status(400).json({
             message: "Không tìm được sản phẩm anh "
@@ -42,7 +42,7 @@ export const addPost = async (req, res) => {
     } catch (error) {
         res.status(400).json({
             message: "Không thêm được"
-        })
+        })  
     }
 
 }
@@ -66,6 +66,29 @@ export const getProductById = async (req, res) => {
         })
     }
 
+}
+export const post = async (req, res) => {
+    try {
+        const product = await new Product(req.body).save();
+        res.json(product);
+    } catch (error) {
+        res.status(400).json({
+            message: "Không thêm được sản phẩm"
+        })
+    }
+
+}
+// tim kiem 
+export const search = async (req, res) => {
+    try {
+        const searchString = req.query.q ? req.query.q : "";
+        const result = await Product.find({ $text: { $search: searchString } }).exec();
+        res.json(result)
+    } catch (error) {
+        res.status(400).json({
+            message: "Không tìm được sản phẩm anh eiii"
+        })
+    }
 }
 
 // export const create = async (req,res)=>{
